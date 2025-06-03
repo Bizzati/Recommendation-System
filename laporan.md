@@ -1,6 +1,6 @@
 # Laporan Proyek Machine Learning - Bizzati Hanif Raushan Fikri
 
-## **Domain Proyek**
+## **Project Overview**
 Sistem rekomendasi merupakan salah satu cabang kecerdasan buatan (artificial intelligence) yang populer digunakan untuk membantu pengguna menemukan produk atau konten yang relevan berdasarkan preferensi mereka. Dalam proyek ini, topik yang dipilih adalah **“Rekomendasi Anime”**, yaitu merancang sistem yang dapat merekomendasikan judul anime kepada pengguna berdasarkan data historis interaksi (rating) dan/atau konten metadata anime.
 
 ## Business Understanding
@@ -49,7 +49,7 @@ Terdapat 2 file .csv pada dataset ini yaitu `anime.csv` & `rating.csv` dengan is
 - `rating` : rating dari 10 yang diberikan user (-1 jika user menonton namun tidak memberi rating). (numerik)
 
 ### **Kondisi Data**
-Jumlah data awal yaitu 12.294 data entri pada `anime.csv` dan 7.813.736 data entri pada `rating.csv`.
+Jumlah data awal yaitu 12.294 baris data dengan 7 kolom pada `anime.csv` dan 7.813.736 baris data dengan 3 kolom pada `rating.csv`. secara total terdapat 10 kolom dari keseluruhan dataset, adapula kondisi data awal pada masing-masing .csv yaitu:
 - Anime.csv:
   - **Tipe data kurang tepat:** Jumlah episode (`episodes`) dalam bentuk objek sedangkan seharusnya numerik, namun setelah validasi ulang memang terdapat seri anime yang belum tamat dan diberi penjelasan `unknown`. Untuk itu data akan tetap ditransformasi namun data NULL setelahnya akan dibiarkan.
   - **Missing Values:** Terdapat sejumlah baris dengan Missing Values; 62 pada kolom `genre`, 25 pada kolom `type`, dan 230 pada kolom `rating`. Hal ini akan ditangani dengan penghapusan baris demi kelancaran dalam training model
@@ -232,15 +232,15 @@ $$
 $$
 
 di mana  
-- $$\(\hat{y}_i\)$$ = rating yang diprediksi oleh model,  
-- $$\(y_i\)$$ = rating asli,  
-- $$\(n\)$$ = jumlah sampel pada data uji.
+- $\hat{y}_i$ = rating yang diprediksi oleh model,  
+- $y_i$ = rating asli,  
+- $n$ = jumlah sampel pada data uji.
 
 #### Hasil
 Berikut cuplikan RMSE selama pelatihan model Neural CF pada data uji:
 
 | Epoch | Training RMSE | Validation RMSE |
-|:-----:|:-------------:|:---------------:|
+|-------|---------------|-----------------|
 | 1     | 4.4505        | 1.3451          |
 | 2     | 1.4925        | 1.2964          |
 | 3     | 1.4232        | 1.2865          |
